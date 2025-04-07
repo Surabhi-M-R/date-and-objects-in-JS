@@ -77,6 +77,46 @@ let nowDate=new Date();
 console.log(nowDate);
 console.log(nowDate.getTime());
 
+// 1) write a function to add a specified of days to a given date
+const addDaysToDate=(date,extraDay)=>{
+let updatedDate=date.setDate(date.getDate()+extraDay);
+updatedDate=new Date(updatedDate);
+return updatedDate;
+}
+
+const date=new Date("2025-02-17");
+const newDate=addDaysToDate(date,7);
+console.log(newDate);
+console.log(newDate.toLocaleDateString());
+
+//2) write a function to calculate the difference in days between two given dates
+const getDaysDifference=(d1,d2)=>{
+    let oneday=24*60*60*1000;
+    let diff=Math.abs(d2-d1);
+    return Math.round(diff);
+}
+
+const d1=new Date("2024-02-19");
+const d2=new Date("2024-03-01");
+console.log(getDaysDifference(d1,d2));
+
+// timing based events in JS
+
+function delayedFunction(x){
+    console.log(" The function was delayed by 2000 milliseconds(2 seconds)",x);
+
+}
+const myWork=setTimeout(delayedFunction,2000);
+setTimeout(()=>delayedFunction(5),2000);
+
+function repeatedFunction(){
+    console.log(" This function will be repeated every 1000 milliseconds");
+}
+const work=setInterval(repeatedFunction,2000);
+
+clearTimeout(myWork);
+clearInterval(work,10000);
+
 
 
 
